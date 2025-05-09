@@ -45,11 +45,17 @@ extension DioExceptionExtension on DioException {
   }
 
   ResultError _handleBadResponse(BadResponseParser badResponseParser) {
-    return switch (response?.data) {
-      final String message => _errFactory.badResponseError(message: message),
-      final Response<dynamic> r => badResponseParser(r),
-      null => _errFactory.badResponseError(statusCode: response?.statusCode),
-      _ => _errFactory.badResponseError(),
-    };
+    try {
+      return switch (response?.data) {
+        final String message => _errFactory.badResponseError(message: message),
+        null => _errFactory.badResponseError(statusCode: response?.statusCode),
+        _ =>
+          response != null
+              ? badResponseParser(response!)
+              : _errFactory.badResponseError(),
+      };
+    } catch (e) {
+      return UnknownError(message: e.toString());
+    }
   }
 }

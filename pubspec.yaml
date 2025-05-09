@@ -7,9 +7,11 @@ environment:
 
 dependencies:
   dio: ^5.8.0+1
+  mocktail: ^1.0.4
   result_flow: ^1.0.0
 
 dev_dependencies:
   lints: ^5.0.0
   test: ^1.24.0
   very_good_analysis: ^7.0.0
+
