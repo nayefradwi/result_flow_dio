@@ -3,6 +3,5 @@
 /// More dartdocs go here.
 library;
 
-export 'src/result_flow_dio_base.dart';
-
-// TODO: Export any libraries intended for clients of this package.
+export 'src/extensions.dart';
+export 'src/interceptor.dart';
