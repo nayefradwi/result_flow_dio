@@ -12,7 +12,7 @@ BadResponseParser defaultBadResponseParser = (Response<dynamic> response) {
 extension ResponseExtenstion<T> on Response<T> {
   Response<Result<T?>> withResult() {
     return Response<Result<T?>>(
-      data: Result.success(data),
+      data: result,
       requestOptions: requestOptions,
       statusCode: statusCode,
       statusMessage: statusMessage,
@@ -21,6 +21,28 @@ extension ResponseExtenstion<T> on Response<T> {
       extra: extra,
       headers: headers,
     );
+  }
+
+  Result<T?> get result {
+    if (data is Result<T?>) {
+      return data! as Result<T?>;
+    }
+    return Result.success(data);
+  }
+}
+
+extension ResponseAsyncExtension<T> on Future<Response<T>> {
+  FutureResult<T?> get unSafeResult async {
+    final response = await this;
+    return response.result;
+  }
+
+  FutureResult<T?> get result async {
+    try {
+      return await unSafeResult;
+    } catch (e) {
+      return Result.exception(e);
+    }
   }
 }
 
