@@ -71,10 +71,8 @@ extension DioExceptionExtension on DioException {
       return switch (response?.data) {
         final String message => _errFactory.badResponseError(message: message),
         null => _errFactory.badResponseError(statusCode: response?.statusCode),
-        _ =>
-          response != null
-              ? badResponseParser(response!)
-              : _errFactory.badResponseError(),
+        _ when response != null => badResponseParser(response!),
+        _ => _errFactory.badResponseError(),
       };
     } catch (e) {
       return UnknownError(message: e.toString());
