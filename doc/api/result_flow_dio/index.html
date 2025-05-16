@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
+  <meta name="description" content="result_flow_dio library API docs, for the Dart programming language.">
+  <title>result_flow_dio library - Dart API</title>
+
+
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet">
+  
+  <link rel="stylesheet" href="../static-assets/github.css?v1">
+  <link rel="stylesheet" href="../static-assets/styles.css?v1">
+  <link rel="icon" href="../static-assets/favicon.png?v1">
+  
+</head>
+
+<body data-base-href="../" data-using-base-href="false" class="light-theme">
+<div id="overlay-under-drawer"></div>
+<header id="title">
+  <span id="sidenav-left-toggle" class="material-symbols-outlined" role="button" tabindex="0">menu</span>
+  <ol class="breadcrumbs gt-separated dark hidden-xs">
+    <li><a href="../index.html">result_flow_dio</a></li>
+    <li class="self-crumb">result_flow_dio.dart</li>
+  </ol>
+  <div class="self-name">result_flow_dio</div>
+  <form class="search navbar-right" role="search">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+  <div class="toggle" id="theme-button" title="Toggle brightness">
+    <label for="theme">
+      <input type="checkbox" id="theme" value="light-theme">
+      <span id="dark-theme-button" class="material-symbols-outlined">
+        dark_mode
+      </span>
+      <span id="light-theme-button" class="material-symbols-outlined">
+        light_mode
+      </span>
+    </label>
+  </div>
+</header>
+<main>
+<div
+    id="dartdoc-main-content"
+    class="main-content"
+    data-above-sidebar=""
+    data-below-sidebar="result_flow_dio&#47;result_flow_dio-library-sidebar.html">
+  
+    <div>
+      
+
+      <h1>
+        <span class="kind-library">result_flow_dio</span>
+        library 
+ 
+
+      </h1>
+    </div>
+
+    
+<section class="desc markdown">
+  <p>A Dart library for handling network requests and responses using Dio.
+This library provides a set of utilities to simplify the process of making
+HTTP requests, handling errors, and managing responses.
+It includes features such as:</p>
+<ul>
+<li>interceptors for request and response handling</li>
+<li>easier error handling</li>
+<li>extensions for easier usage of Dio</li>
+<li>a safe way to handle network errors</li>
+</ul>
+</section>
+
+
+    <section class="summary offset-anchor" id="classes">
+      <h2>Classes</h2>
+      <dl>
+          <dt id="NetworkErrorFactory">
+  <span class="name "><a href="../result_flow_dio/NetworkErrorFactory-class.html">NetworkErrorFactory</a></span> 
+
+</dt>
+<dd>
+  <a href="../result_flow_dio/NetworkErrorFactory-class.html">NetworkErrorFactory</a> is a singleton class that provides methods to create
+instances of <a href="https://pub.dev/documentation/result_flow/1.0.0/result_flow/NetworkError-class.html">NetworkError</a> based on the type of network error encountered.
+It uses the <a href="../result_flow_dio/NetworkErrorOptions-class.html">NetworkErrorOptions</a> to customize the error messages.
+The factory methods return instances of <a href="https://pub.dev/documentation/result_flow/1.0.0/result_flow/NetworkError-class.html">NetworkError</a> with appropriate
+error messages and codes.
+</dd>
+
+          <dt id="NetworkErrorOptions">
+  <span class="name "><a href="../result_flow_dio/NetworkErrorOptions-class.html">NetworkErrorOptions</a></span> 
+
+</dt>
+<dd>
+  <a href="../result_flow_dio/NetworkErrorOptions-class.html">NetworkErrorOptions</a> is used to configure error messages based on the
+Network Error type. It utilizes the <a href="../result_flow_dio/ResultNetworkCode-class.html">ResultNetworkCode</a> to give a unique
+identifier to each error while allowing customization of the error message.
+</dd>
+
+          <dt id="ResultMapperInterceptor">
+  <span class="name "><a href="../result_flow_dio/ResultMapperInterceptor-class.html">ResultMapperInterceptor</a></span> 
+
+</dt>
+<dd>
+  <a href="../result_flow_dio/ResultMapperInterceptor-class.html">ResultMapperInterceptor</a> is a Dio interceptor that transforms the
+response and error objects into a <a href="https://pub.dev/documentation/result_flow/1.0.0/result_flow/Result-class.html">Result</a> type. It allows you to handle
+errors and responses in a more functional way, using the <a href="https://pub.dev/documentation/result_flow/1.0.0/result_flow/Result-class.html">Result</a> type
+to represent success and failure.
+</dd>
+
+          <dt id="ResultNetworkCode">
+  <span class="name "><a href="../result_flow_dio/ResultNetworkCode-class.html">ResultNetworkCode</a></span> 
+
+</dt>
+<dd>
+  <a href="../result_flow_dio/ResultNetworkCode-class.html">ResultNetworkCode</a> contains the error codes for network requests.
+These codes are used in to uniquely identify the reason an api
+request failed.
+</dd>
+
+      </dl>
+    </section>
+
+    <section class="summary offset-anchor" id="enums">
+      <h2>Enums</h2>
+      <dl>
+          <dt id="OnErrorAction">
+  <span class="name "><a href="../result_flow_dio/OnErrorAction.html">OnErrorAction</a></span> 
+
+</dt>
+<dd>
+  
+</dd>
+
+          <dt id="OnResponseAction">
+  <span class="name "><a href="../result_flow_dio/OnResponseAction.html">OnResponseAction</a></span> 
+
+</dt>
+<dd>
+  
+</dd>
+
+      </dl>
+    </section>
+
+
+
+    <section class="summary offset-anchor" id="extensions">
+      <h2>Extensions</h2>
+      <dl>
+          <dt id="DioExceptionExtension">
+  <span class="name "><a href="../result_flow_dio/DioExceptionExtension.html">DioExceptionExtension</a></span>
+  on <a href="https://pub.dev/documentation/dio/5.8.0+1/dio/DioException-class.html">DioException</a>
+  
+
+</dt>
+<dd>
+  <a href="../result_flow_dio/DioExceptionExtension.html">DioExceptionExtension</a> is an extension on the <a href="https://pub.dev/documentation/dio/5.8.0+1/dio/DioException-class.html">DioException</a> class from
+Dio. It provides a method to convert the exception into a <a href="https://pub.dev/documentation/result_flow/1.0.0/result_flow/ResultError-class.html">ResultError</a>.
+The <a href="../result_flow_dio/DioExceptionExtension/getResultError.html">getResultError</a> method returns a <a href="https://pub.dev/documentation/result_flow/1.0.0/result_flow/ResultError-class.html">ResultError</a> based on the type
+of DioException encountered.
+</dd>
+
+          <dt id="ResponseAsyncExtension">
+  <span class="name "><a href="../result_flow_dio/ResponseAsyncExtension.html">ResponseAsyncExtension</a></span>
+  on <a href="https://api.dart.dev/stable/3.7.2/dart-core/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://pub.dev/documentation/dio/5.8.0+1/dio/Response-class.html">Response</a><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span></span>&gt;</span>
+  
+
+</dt>
+<dd>
+  <a href="../result_flow_dio/ResponseAsyncExtension.html">ResponseAsyncExtension</a> is an extension on the <a href="https://api.dart.dev/stable/3.7.2/dart-core/Future-class.html">Future&lt;Response&lt;T&gt;&gt;</a>
+class from Dio. It allows to safely extract <a href="https://pub.dev/documentation/result_flow/1.0.0/result_flow/FutureResult.html">FutureResult</a> from an async
+response.
+</dd>
+
+          <dt id="ResponseExtenstion">
+  <span class="name "><a href="../result_flow_dio/ResponseExtenstion.html">ResponseExtenstion</a></span>
+  on <a href="https://pub.dev/documentation/dio/5.8.0+1/dio/Response-class.html">Response</a><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span>
+  
+
+</dt>
+<dd>
+  <a href="../result_flow_dio/ResponseExtenstion.html">ResponseExtenstion</a> is an extension on the <a href="https://pub.dev/documentation/dio/5.8.0+1/dio/Response-class.html">Response</a> class from Dio.
+It provides a method to extract a <a href="https://pub.dev/documentation/result_flow/1.0.0/result_flow/Result-class.html">Result</a> object from the response.
+The <a href="../result_flow_dio/ResponseExtenstion/withResult.html">withResult</a> method returns a new <a href="https://pub.dev/documentation/dio/5.8.0+1/dio/Response-class.html">Response</a> object with the data
+transformed to a <a href="https://pub.dev/documentation/result_flow/1.0.0/result_flow/Result-class.html">Result</a> type.
+</dd>
+
+      </dl>
+    </section>
+
+
+    <section class="summary offset-anchor" id="properties">
+      <h2>Properties</h2>
+      <dl class="properties">
+          <dt id="defaultBadResponseParser" class="property">
+  <span class="name"><a href="../result_flow_dio/defaultBadResponseParser.html">defaultBadResponseParser</a></span>
+  <span class="signature">&#8596; <a href="../result_flow_dio/BadResponseParser.html">BadResponseParser</a></span>
+  
+
+</dt>
+<dd>
+  
+  <div class="features"><span class="feature">getter/setter pair</span></div>
+
+</dd>
+
+      </dl>
+    </section>
+
+
+    <section class="summary offset-anchor" id="typedefs">
+      <h2>Typedefs</h2>
+      <dl>
+          
+  <dt id="BadResponseParser" class="callable">
+    <span class="name"><a href="../result_flow_dio/BadResponseParser.html">BadResponseParser</a></span><span class="signature">
+      <span class="returntype parameter">= <a href="https://pub.dev/documentation/result_flow/1.0.0/result_flow/ResultError-class.html">ResultError</a> Function<span class="signature">(<span class="parameter" id="param-response"><span class="type-annotation"><a href="https://pub.dev/documentation/dio/5.8.0+1/dio/Response-class.html">Response</a></span> <span class="parameter-name">response</span></span>)</span></span>
+    </span>
+    
+
+  </dt>
+  <dd>
+    
+    
+
+  </dd>
+
+      </dl>
+    </section>
+
+  </div> <!-- /.main-content -->
+  <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
+    <!-- The search input and breadcrumbs below are only responsively visible at low resolutions. -->
+<header id="header-search-sidebar" class="hidden-l">
+  <form class="search-sidebar" role="search">
+    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+</header>
+<ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
+    <li><a href="../index.html">result_flow_dio</a></li>
+    <li class="self-crumb">result_flow_dio.dart</li>
+</ol>
+
+    <h5><span class="package-name">result_flow_dio</span> <span class="package-kind">package</span></h5>
+    <ol>
+      <li class="section-title">Libraries</li>
+      <li><a href="../result_flow_dio">result_flow_dio</a></li>
+</ol>
+
+  </div>
+  <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
+    <h5>result_flow_dio library</h5>
+  </div><!--/sidebar-offcanvas-right-->
+</main>
+<footer>
+  <span class="no-break">
+    result_flow_dio
+      1.0.0
+  </span>
+  
+</footer>
+
+
+<script src="../static-assets/highlight.pack.js?v1"></script>
+<script src="../static-assets/docs.dart.js"></script>
+
+</body>
+</html>
+

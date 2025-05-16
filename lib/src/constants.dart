@@ -1,3 +1,6 @@
+/// [ResultNetworkCode] contains the error codes for network requests.
+/// These codes are used in to uniquely identify the reason an api
+/// request failed.
 abstract class ResultNetworkCode {
   static const connectionTimeoutCode = 'connection_timeout';
   static const sendTimeoutCode = 'send_timeout';
