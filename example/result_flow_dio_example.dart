@@ -16,7 +16,16 @@ void main() async {
 
   result.on(
     success: (data) {
-      print(data);
+      // data can then be parsed as a Map<String, dynamic> or a List<dynamic>
+      // depending on the API response.
+      // For example, if the API returns a JSON object:
+      // final movie = Movie.fromJson(data as Map<String, dynamic>);
+      // print(movie.title);
+      // Or if the API returns a JSON array:
+      // final movies = (data as List<dynamic>)
+      //     .map((item) => Movie.fromJson(item as Map<String, dynamic>))
+      //     .toList();
+      // print(movies);
     },
     error: (err) {
       print(err.message);
