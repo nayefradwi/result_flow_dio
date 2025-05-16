@@ -1,6 +1,7 @@
 name: result_flow_dio
-description: A starting point for Dart libraries or applications.
+description: Adapts Dio HTTP responses and errors to the result_flow Result type.
 version: 1.0.0
+repository: https://github.com/nayefradwi/result_flow_dio
 
 environment:
   sdk: ^3.7.2
