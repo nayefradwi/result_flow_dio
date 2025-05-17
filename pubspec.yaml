@@ -1,6 +1,6 @@
 name: result_flow_dio
 description: Adapts Dio HTTP responses and errors to the result_flow Result type.
-version: 1.0.0
+version: 1.0.1
 repository: https://github.com/nayefradwi/result_flow_dio
 
 environment:
