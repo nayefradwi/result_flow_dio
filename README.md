@@ -105,7 +105,8 @@ void main() async {
 
 `result_flow_dio` is built to integrate `result_flow` with `dio`.
 
-| Package           | Pub.dev Link                                                                                                 |
-| :---------------- | :----------------------------------------------------------------------------------------------------------- |
-| `result_flow`     | [![pub package](https://img.shields.io/pub/v/result_flow.svg)](https://pub.dev/packages/result_flow)         |
-| `result_flow_dio` | [![pub package](https://img.shields.io/pub/v/result_flow_dio.svg)](https://pub.dev/packages/result_flow_dio) |
+| Package             | Pub.dev Link                                                                                                     |
+| :------------------ | :--------------------------------------------------------------------------------------------------------------- |
+| `fetch_result_bloc` | [![pub package](https://img.shields.io/pub/v/fetch_result_bloc.svg)](https://pub.dev/packages/fetch_result_bloc) |
+| `result_flow`       | [![pub package](https://img.shields.io/pub/v/result_flow.svg)](https://pub.dev/packages/result_flow)             |
+| `result_flow_dio`   | [![pub package](https://img.shields.io/pub/v/result_flow_dio.svg)](https://pub.dev/packages/result_flow_dio)     |
