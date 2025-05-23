@@ -49,7 +49,7 @@ extension ResponseExtenstion<T> on Response<T> {
 /// response.
 ///
 /// The [unSafeResult] getter extracts the result from the response.
-/// If the Future<Response<T>> throws an exception, it will NOT be caught.
+/// If the [Future<Response<T>>] throws an exception, it will NOT be caught.
 ///
 /// The [result] getter safely extracts the result from the response.
 /// If an excpetion occurs, it returns a [Result] with the
