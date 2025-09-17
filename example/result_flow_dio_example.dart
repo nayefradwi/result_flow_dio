@@ -40,7 +40,7 @@ Dio createDioLoggerPrefix() {
   dio.interceptors.add(LoggerInterceptor());
   dio.interceptors.add(
     ResultMapperInterceptor(
-      badResponseParser: (r) {
+      badResponseParser: (r, {trace}) {
         final message = r.data?['Error'] as String? ?? 'Unknown error';
         return NetworkError(message);
       },

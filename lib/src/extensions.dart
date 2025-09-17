@@ -2,10 +2,15 @@ import 'package:dio/dio.dart';
 import 'package:result_flow/result_flow.dart';
 import 'package:result_flow_dio/src/network_error_factory.dart';
 
-typedef BadResponseParser = ResultError Function(Response<dynamic> response);
-BadResponseParser defaultBadResponseParser = (Response<dynamic> response) {
+typedef BadResponseParser =
+    ResultError Function(Response<dynamic> response, {StackTrace? trace});
+BadResponseParser defaultBadResponseParser = (
+  Response<dynamic> response, {
+  StackTrace? trace,
+}) {
   return NetworkErrorFactory.instance.badResponseError(
     statusCode: response.statusCode,
+    trace: trace,
   );
 };
 
@@ -84,32 +89,50 @@ extension DioExceptionExtension on DioException {
   NetworkErrorFactory get _errFactory => NetworkErrorFactory.instance;
   ResultError getResultError({BadResponseParser? badResponseParser}) {
     final error = switch (type) {
+      DioExceptionType.cancel => _errFactory.cancelError(trace: stackTrace),
       DioExceptionType.connectionTimeout =>
         _errFactory.connectionTimeoutError(),
-      DioExceptionType.sendTimeout => _errFactory.sendTimeoutError(),
-      DioExceptionType.receiveTimeout => _errFactory.receiveTimeoutError(),
-      DioExceptionType.badCertificate => _errFactory.badCertificateError(),
-      DioExceptionType.cancel => _errFactory.cancelError(),
-      DioExceptionType.connectionError => _errFactory.connectionError(),
+      DioExceptionType.sendTimeout => _errFactory.sendTimeoutError(
+        trace: stackTrace,
+      ),
+      DioExceptionType.receiveTimeout => _errFactory.receiveTimeoutError(
+        trace: stackTrace,
+      ),
+      DioExceptionType.badCertificate => _errFactory.badCertificateError(
+        trace: stackTrace,
+      ),
+      DioExceptionType.connectionError => _errFactory.connectionError(
+        trace: stackTrace,
+      ),
       DioExceptionType.badResponse => _handleBadResponse(
         badResponseParser ?? defaultBadResponseParser,
+        stackTrace,
       ),
-      _ => UnknownError(message: toString()),
+      _ => UnknownError(message: toString(), trace: stackTrace),
     };
 
     return error;
   }
 
-  ResultError _handleBadResponse(BadResponseParser badResponseParser) {
+  ResultError _handleBadResponse(
+    BadResponseParser badResponseParser,
+    StackTrace? trace,
+  ) {
     try {
       return switch (response?.data) {
-        final String message => _errFactory.badResponseError(message: message),
-        null => _errFactory.badResponseError(statusCode: response?.statusCode),
-        _ when response != null => badResponseParser(response!),
-        _ => _errFactory.badResponseError(),
+        final String message => _errFactory.badResponseError(
+          message: message,
+          trace: trace,
+        ),
+        null => _errFactory.badResponseError(
+          statusCode: response?.statusCode,
+          trace: trace,
+        ),
+        _ when response != null => badResponseParser(response!, trace: trace),
+        _ => _errFactory.badResponseError(trace: trace),
       };
-    } catch (e) {
-      return UnknownError(message: e.toString());
+    } catch (e, stack) {
+      return UnknownError(message: e.toString(), trace: stack);
     }
   }
 }
