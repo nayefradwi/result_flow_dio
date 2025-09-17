@@ -385,7 +385,10 @@ void main() {
         when(() => testErrorHandler.resolve(any())).thenReturn(null);
         when(() => testErrorHandler.reject(any())).thenReturn(null);
 
-        NetworkError customParser(Response<dynamic> response) {
+        NetworkError customParser(
+          Response<dynamic> response, {
+          StackTrace? trace,
+        }) {
           return NetworkError(
             'Custom error',
             code: 'custom_code',
@@ -427,7 +430,10 @@ void main() {
       when(() => testErrorHandler.resolve(any())).thenReturn(null);
       when(() => testErrorHandler.reject(any())).thenReturn(null);
 
-      ResultError throwingParser(Response<dynamic> response) {
+      ResultError throwingParser(
+        Response<dynamic> response, {
+        StackTrace? trace,
+      }) {
         throw Exception('Parser error');
       }
 

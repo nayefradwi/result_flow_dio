@@ -49,39 +49,49 @@ class NetworkErrorFactory {
     instance = NetworkErrorFactory._internal(options: newOptions);
   }
 
-  NetworkError connectionTimeoutError() => NetworkError(
+  NetworkError connectionTimeoutError({StackTrace? trace}) => NetworkError(
     options.onConnectionTimeoutMessage,
     code: ResultNetworkCode.connectionTimeoutCode,
+    trace: trace,
   );
 
-  NetworkError sendTimeoutError() => NetworkError(
+  NetworkError sendTimeoutError({StackTrace? trace}) => NetworkError(
     options.onSendTimeoutMessage,
     code: ResultNetworkCode.sendTimeoutCode,
+    trace: trace,
   );
 
-  NetworkError receiveTimeoutError() => NetworkError(
+  NetworkError receiveTimeoutError({StackTrace? trace}) => NetworkError(
     options.onReceiveTimeoutMessage,
     code: ResultNetworkCode.receiveTimeoutCode,
+    trace: trace,
   );
 
-  NetworkError cancelError() =>
+  NetworkError cancelError({StackTrace? trace}) =>
       NetworkError(options.onCancelMessage, code: ResultNetworkCode.cancelCode);
 
-  NetworkError badCertificateError() => NetworkError(
+  NetworkError badCertificateError({StackTrace? trace}) => NetworkError(
     options.onBadCertificateMessage,
     code: ResultNetworkCode.badCertificateCode,
+    trace: trace,
   );
 
-  NetworkError connectionError() => NetworkError(
+  NetworkError connectionError({StackTrace? trace}) => NetworkError(
     options.onConnectionErrorMessage,
     code: ResultNetworkCode.connectionErrorCode,
+    trace: trace,
   );
 
-  NetworkError badResponseError({String? message, int? statusCode}) {
+  NetworkError badResponseError({
+    String? message,
+    int? statusCode,
+    StackTrace? trace,
+  }) {
     return NetworkError(
       message ?? options.onBadResponseMessage,
       code: ResultNetworkCode.badResponseCode,
       statusCode: statusCode ?? options.onBadResponseStatusCode,
+      trace: trace,
     );
   }
 }
